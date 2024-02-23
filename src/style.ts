@@ -6,8 +6,8 @@ export default {
     top: ${top}px;
     width: 100%;
     height: 50px;
-    background: wheat;
     display: flex;
+    transition: all 0.2s linear;
     button {
       all: unset;
       flex: 1 1 auto;
@@ -17,11 +17,12 @@ export default {
       justify-content: center;
     }
   `,
-  wrapper: css`
+  wrapper: (top: number) => css`
     position: fixed;
-    top: 50px;
+    top: ${top}px;
     width: 100%;
     height: 100%;
     overflow: auto;
+    transition: all 0.2s linear;
   `,
 };
