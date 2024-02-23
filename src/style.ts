@@ -1,9 +1,11 @@
 import { css } from "@emotion/react";
 
 export default {
-  navigator: css`
+  navigator: (top: number) => css`
+    position: fixed;
+    top: ${top}px;
     width: 100%;
-    height: 40px;
+    height: 50px;
     background: wheat;
     display: flex;
     button {
@@ -16,6 +18,8 @@ export default {
     }
   `,
   wrapper: css`
+    position: fixed;
+    top: 50px;
     width: 100%;
     height: 100%;
     overflow: auto;
