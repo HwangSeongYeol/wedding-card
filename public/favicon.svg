@@ -1,0 +1,10 @@
+<svg width="184" height="184" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" class="iconify iconify--logos" preserveAspectRatio="xMidYMid meet">
+ <g id="Layer_1">
+  <rect rx="5" stroke-width="5" id="svg_1" height="130" width="180" y="28.20615" x="2.19333" stroke="#000" fill="#fff"/>
+  <line stroke="#000" id="svg_7" y2="93.70615" x2="67" y1="155.70615" x1="2.19333" stroke-width="5" fill="none"/>
+  <line stroke="#000" id="svg_8" y2="93.70615" x2="67" y1="28.70615" x1="2.19333" stroke-width="5" fill="none"/>
+  <line stroke="#000" id="svg_9" y2="93.70615" x2="117" y1="155.70615" x1="182.19333" stroke-width="5" fill="none"/>
+  <line stroke="#000" id="svg_10" y2="93.70615" x2="117" y1="28.70615" x1="182.19333" stroke-width="5" fill="none"/>
+  <path stroke="#ff5656" id="svg_11" d="m92,81.58721c12.3344,-35.38557 60.66099,0 0,45.49574c-60.66099,-45.49574 -12.3344,-80.88131 0,-45.49574z" stroke-width="5" fill="#ff5656"/>
+ </g>
+</svg>

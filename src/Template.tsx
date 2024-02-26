@@ -1,14 +1,13 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
-import style from "./style";
+import style from "./Template.style.ts";
 import { Tab, Tabs } from "@mui/material";
 import { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import NameLogo from "./molecules/NameLogo";
 
 
-function samePageLinkNavigation(
+const samePageLinkNavigation = (
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-) {
+) => {
   if (
     event.defaultPrevented ||
     event.button !== 0 || // ignore everything but left-click
@@ -39,6 +38,16 @@ const LinkTab = ({ label, value, selected, ...props }: LinkTabProps) => {
   );
 }
 
+const isMobile = () => {
+  const user = navigator.userAgent;
+  let isCheck = false;
+
+  if (user.indexOf("iPhone") > -1 || user.indexOf("Android") > -1) {
+    isCheck = true;
+  }
+
+  return isCheck;
+}
 
 const Template = () => {
   const navigate = useNavigate();
@@ -46,17 +55,8 @@ const Template = () => {
   const [value, setValue] = useState(pathname.replace("/", ""));
   // State variables to manage scroll behavior
   const [prevScrollpos, setPrevScrollpos] = useState(0);
-  const [top, setTop] = useState(-50);
-  const [test, setTest] = useState<any>();
+  const [showNaviBar, setShowNaviBar] = useState<boolean>(isMobile() ? true : true);
   let startY = 0;
-  const getTest = async () => {
-    const docRef = doc(db, "comments", "0TDnfDHHxwOUKw9RTPyN");
-    const docSnap = await getDoc(docRef);
-    console.log(docSnap.data())
-    if (docSnap.exists()) {
-      setTest(docSnap.data())
-    }
-  }
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     // event.type can be equal to focus with selectionFollowsFocus.
@@ -72,6 +72,8 @@ const Template = () => {
     }
   };
 
+  useEffect(() => { setValue(pathname.replace("/", "")) }, [pathname])
+
   useEffect(() => {
     const parentContainer = document.querySelector('.main')
     const childContainer = document.querySelector('.pages')
@@ -80,9 +82,11 @@ const Template = () => {
       if (parentContainer === null || childContainer === null) return;
       const { top: currentScrollPos } = childContainer.getBoundingClientRect();
       if (prevScrollpos < currentScrollPos) {
-        setTop(0); // Show navbar
+        console.log('스크롤 내리는 중')
+        setShowNaviBar(true)
       } else {
-        setTop(-50); // Hide navbar
+        console.log('스크롤 올리는 중')
+        setShowNaviBar(false)
       }
       setPrevScrollpos(currentScrollPos);
     };
@@ -98,16 +102,15 @@ const Template = () => {
       startY = e.touches[0].clientY;
     }
     const handleTouchMove = (e: any) => {
-      let moveY = e.touches[0].clientY;
-      let diffY = moveY - startY;
+      const moveY = e.touches[0].clientY;
+      const diffY = moveY - startY;
 
       if (window.scrollY === 0 && diffY > 0) {
-        setTop(0);
+        setShowNaviBar(true)
       }
     }
     parentContainer?.addEventListener('touchstart', handleTouchStart);
     parentContainer?.addEventListener('touchmove', handleTouchMove);
-    getTest();
     return () => {
       parentContainer?.addEventListener('touchstart', handleTouchStart);
       parentContainer?.addEventListener('touchmove', handleTouchMove);
@@ -116,8 +119,7 @@ const Template = () => {
 
   return (
     <>
-      <span>{String(test)}</span>
-      <div css={style.navigator(top)}>
+      <div css={style.navigator(showNaviBar)}>
         <Tabs
           value={value}
           onChange={handleChange}
@@ -127,13 +129,14 @@ const Template = () => {
           scrollButtons
           allowScrollButtonsMobile
         >
+          <NameLogo />
           <LinkTab label="초대합니다!" value="home" />
           <LinkTab label="사진" value="photos" />
           <LinkTab label="오시는 길" value="directions" />
           <LinkTab label="축하의 마음 전하기" value="wishes" />
         </Tabs>
       </div>
-      <div className="main" css={style.wrapper(50 + top)} >
+      <div className="main" css={style.wrapper(showNaviBar)} >
         <Outlet />
       </div>
     </>

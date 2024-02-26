@@ -6,6 +6,7 @@
   color-scheme: light dark;
   color: #213547;
   background-color: #ffffff;
+  font-size: 1rem;
 }
 
 body {
@@ -17,6 +18,11 @@ body {
     flex-direction: column;
     height: 100%;
   }
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
 }
 
 @media (prefers-color-scheme: light) {

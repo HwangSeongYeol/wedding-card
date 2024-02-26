@@ -1,12 +1,13 @@
 import { css } from "@emotion/react";
 
 export default {
-  navigator: (top: number) => css`
+  navigator: (showNaviBar: boolean) => css`
     position: fixed;
-    top: ${top}px;
+    top: ${showNaviBar ? 0 : -50}px;
     width: 100%;
     height: 50px;
     display: flex;
+    justify-content: center;
     transition: all 0.2s linear;
     button {
       all: unset;
@@ -16,10 +17,13 @@ export default {
       align-items: center;
       justify-content: center;
     }
+    .MuiTabs-indicator {
+      background-color: #f0394d;
+    }
   `,
-  wrapper: (top: number) => css`
+  wrapper: (showNaviBar: boolean) => css`
     position: fixed;
-    top: ${top}px;
+    top: ${showNaviBar ? 50 : 0}px;
     width: 100%;
     height: 100%;
     overflow: auto;
