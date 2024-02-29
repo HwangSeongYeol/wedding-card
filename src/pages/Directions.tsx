@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import style from "./Directions.style";
 import { Loader } from "@googlemaps/js-api-loader"
 import { Button } from "@mui/material";
-import naverIcon from "@/assets/naver_icon.png";
-import kakaoMapIcon from "@/assets/kakao_map.png";
-import CopyIconButton from "@/utils/CopyIconButton";
+import naverIcon from "@src/assets/naver_icon.png";
+import kakaoMapIcon from "@src/assets/kakao_map.png";
+import CopyIconButton from "@src/utils/CopyIconButton";
 
 const loader = new Loader({
   apiKey: import.meta.env.VITE_GOOGLE_MAP_PLATFORM_API,

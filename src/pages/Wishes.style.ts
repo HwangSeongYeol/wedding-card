@@ -52,6 +52,18 @@ export default {
         color: pink;
         font-size: 0.8rem;
       }
+      .comment-delete {
+        float: right;
+      }
+      .comment-date {
+        text-align: end;
+        font-size: 0.8rem;
+      }
+    }
+  `,
+  deleteDialog: css`
+    .MuiDialogActions-root {
+      padding: 0 24px 8px 24px;
     }
   `,
   editComment: css`

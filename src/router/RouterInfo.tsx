@@ -1,8 +1,8 @@
-import Template from "@/Template";
-import Directions from "@/pages/Directions";
-import Home from "@/pages/Home";
-import Photos from "@/pages/Photos";
-import Wishes from "@/pages/Wishes";
+import Template from "@src/Template";
+import Directions from "@src/pages/Directions";
+import Home from "@src/pages/Home";
+import Photos from "@src/pages/Photos";
+import Wishes from "@src/pages/Wishes";
 import { Navigate } from "react-router-dom";
 
 

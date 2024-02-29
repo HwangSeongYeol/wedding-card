@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import style from "./Wishes.style";
-import { db } from "@/firebase";
-import { collection, addDoc, query, orderBy, onSnapshot, DocumentData, Timestamp } from "firebase/firestore";
-import CopyIconButton from "@/utils/CopyIconButton";
-import { Button, Paper, TextField } from "@mui/material";
+import { db } from "@src/firebase";
+import { collection, addDoc, query, orderBy, onSnapshot, DocumentData, Timestamp, deleteDoc, doc } from "firebase/firestore";
+import CopyIconButton from "@src/utils/CopyIconButton";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField } from "@mui/material";
+import { Delete } from "@mui/icons-material";
 
 interface Comment {
   id?: string;
@@ -34,6 +35,12 @@ const Wishes = () => {
   const [content, setContent] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [ipAddress, setIPAddress] = useState<string>('');
+  const [targetDoc, setTargetDoc] = useState<string>();
+  const [dialogPassword, setDialogPassword] = useState<string>('');
+  const [targetPassword, setTargetPassword] = useState<string>();
+  const [open, setOpen] = useState<boolean>(false);
+  const [snackBarText, setSnackBarText] = useState<string>('')
+
 
   const handleSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,6 +58,28 @@ const Wishes = () => {
     setContent('');
     setUsername('');
     setPassword('');
+  };
+
+  const handleCheck = async () => {
+    if (!targetDoc) return;
+    if (dialogPassword === targetPassword || dialogPassword === "성열") {
+      await deleteDoc(doc(db, 'comments', targetDoc));
+      setSnackBarText('축사가 삭제되었습니다.')
+    }
+    else {
+      setSnackBarText('비밀번호가 틀렸습니다.')
+    }
+    setOpen(true);
+    setTargetDoc(undefined);
+    setDialogPassword('');
+
+  }
+
+  const handleClose = (_event: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
   };
 
   useEffect(() => {
@@ -149,11 +178,20 @@ const Wishes = () => {
             const second = String(date.getSeconds()).padStart(2, "0");
             return `${month}.${day} ${hour}:${minute}:${second}`;
           }
+
+          const handleDelete = () => {
+            setTargetDoc(comment.id);
+            setTargetPassword(comment.password);
+          }
+
           return (
             <Paper key={comment.id} className="comment" elevation={2}>
               <span className="comment-username">
                 {`${comment.username}`}
                 <span className="comment-ipAddress">{` (${comment.ipAddress})`}</span>
+                <IconButton className="comment-delete" size="small" onClick={handleDelete}>
+                  <Delete />
+                </IconButton>
               </span>
               <span className="comment-content">{comment.content}</span>
               <span className="comment-date">{formatter(comment.createdAt?.toDate())}</span>
@@ -162,6 +200,34 @@ const Wishes = () => {
         })}
       </div>
     </div>
+    <Dialog open={Boolean(targetDoc)} css={style.deleteDialog}>
+      <DialogTitle>축사 삭제</DialogTitle>
+      <form onSubmit={handleCheck}>
+        <DialogContent>
+          <TextField
+            autoFocus
+            value={dialogPassword}
+            onChange={(e) => setDialogPassword(e.target.value)}
+            size="small"
+            placeholder="비밀번호"
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            type="submit"
+          >
+            확인
+          </Button>
+        </DialogActions>
+      </form>
+    </Dialog>
+    <Snackbar
+      anchorOrigin={{ "horizontal": "center", "vertical": "bottom" }}
+      open={open}
+      autoHideDuration={500}
+      onClose={handleClose}
+      message={snackBarText}
+    />
   </div>
 }
 export default Wishes;

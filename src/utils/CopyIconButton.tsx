@@ -14,8 +14,7 @@ const CopyIconButton = ({ text }: { text: string }) => {
       console.log(error, "복사 실패!");
     }
   }
-  const handleClose = (event: React.SyntheticEvent | Event, reason?: string) => {
-    event.preventDefault();
+  const handleClose = (_event: React.SyntheticEvent | Event, reason?: string) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -30,7 +29,7 @@ const CopyIconButton = ({ text }: { text: string }) => {
     <Snackbar
       anchorOrigin={{ "horizontal": "center", "vertical": "bottom" }}
       open={open}
-      autoHideDuration={500}
+      autoHideDuration={750}
       onClose={handleClose}
       message={`${text}(이)가 클립보드에 복사되었습니다.`}
     />

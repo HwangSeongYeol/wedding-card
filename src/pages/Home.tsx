@@ -1,5 +1,5 @@
 import style from "./Home.style";
-import youreInvited from "@/assets/youreInvited.jpg"
+import youreInvited from "@src/assets/youreInvited.jpg"
 
 const Home = () => {
   return <div className="pages home" css={style.wrapper}>

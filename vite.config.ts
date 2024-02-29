@@ -14,7 +14,7 @@ export default defineConfig({
   base: "/wedding-card/",
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      "@src": path.resolve(__dirname, "./src"),
     },
   },
 });

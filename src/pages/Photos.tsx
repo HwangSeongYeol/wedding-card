@@ -1,7 +1,7 @@
 import style from "./Photos.style";
-import photo1 from "@/assets/photo1.jpg"
-import photo2 from "@/assets/photo2.jpg"
-import photo3 from "@/assets/photo3.jpg"
+import photo1 from "@src/assets/photo1.jpg"
+import photo2 from "@src/assets/photo2.jpg"
+import photo3 from "@src/assets/photo3.jpg"
 
 const Photos = () => {
   return <div className="pages photos" css={style.wrapper}>
