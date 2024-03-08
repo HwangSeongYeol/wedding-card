@@ -5,9 +5,7 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1000px;
     padding: 8px;
-    margin-bottom: 50px;
     .Groom-Bride .AccoutInfotitle {
       background-color: #fa3a51;
     }

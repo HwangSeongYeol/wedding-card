@@ -6,7 +6,6 @@ export default {
     border-radius: 100%;
     padding: 8px;
     margin-top: 4px;
-    background-color: #f0394d;
     color: #fff;
     text-align: center;
     user-select: none;

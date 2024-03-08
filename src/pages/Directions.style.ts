@@ -5,7 +5,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1000px;
     padding: 8px;
   `,
   mapWrapper: css`

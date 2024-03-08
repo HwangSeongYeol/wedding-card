@@ -1,9 +1,16 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import style from "./Template.style.ts";
-import { Tab, Tabs } from "@mui/material";
-import { useEffect, useState } from "react";
+import { Box, Fab, Paper, Tab, Tabs, ThemeProvider, createTheme, useMediaQuery } from "@mui/material";
+import { createContext, useEffect, useMemo, useState } from "react";
 import NameLogo from "./molecules/NameLogo";
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import getDesignTokens from "./getDesignTokens.ts";
 
+
+const ColorModeContext = createContext({ toggleColorMode: () => { } });
 
 const samePageLinkNavigation = (
   event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
@@ -57,6 +64,28 @@ const Template = () => {
   const [prevScrollpos, setPrevScrollpos] = useState(0);
   const [showNaviBar, setShowNaviBar] = useState<boolean>(isMobile() ? true : true);
   let startY = 0;
+  const deviceMode = useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'dark';
+  const [mode, setMode] = useState<'light' | 'dark'>(deviceMode);
+
+  const [song] = useState(new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"));
+  const [play, setPlay] = useState(true);
+
+  const playToggle = () => setPlay(!play);
+
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = useMemo(
+    () =>
+      createTheme(getDesignTokens(mode)),
+    [mode],
+  );
 
   const handleChange = (event: React.SyntheticEvent, newValue: string) => {
     // event.type can be equal to focus with selectionFollowsFocus.
@@ -75,6 +104,10 @@ const Template = () => {
   useEffect(() => { setValue(pathname.replace("/", "")) }, [pathname])
 
   useEffect(() => {
+    play ? song.play() : song.pause();
+  }, [song, play]);
+
+  useEffect(() => {
     const parentContainer = document.querySelector('.main')
     const childContainer = document.querySelector('.pages')
     // Function to handle scroll events
@@ -86,7 +119,7 @@ const Template = () => {
         setShowNaviBar(true)
       } else {
         console.log('스크롤 올리는 중')
-        setShowNaviBar(false)
+        setShowNaviBar(true)
       }
       setPrevScrollpos(currentScrollPos);
     };
@@ -111,35 +144,62 @@ const Template = () => {
     }
     parentContainer?.addEventListener('touchstart', handleTouchStart);
     parentContainer?.addEventListener('touchmove', handleTouchMove);
+    song.addEventListener('ended', () => setPlay(false));
     return () => {
       parentContainer?.addEventListener('touchstart', handleTouchStart);
       parentContainer?.addEventListener('touchmove', handleTouchMove);
+      song.removeEventListener('ended', () => setPlay(false));
     }
   }, [])
 
   return (
-    <>
-      <div css={style.navigator(showNaviBar)}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="nav tabs example"
-          role="navigation"
-          variant="scrollable"
-          scrollButtons
-          allowScrollButtonsMobile
-        >
-          <NameLogo />
-          <LinkTab label="초대합니다!" value="home" />
-          <LinkTab label="사진" value="photos" />
-          <LinkTab label="오시는 길" value="directions" />
-          <LinkTab label="축하의 마음 전하기" value="wishes" />
-        </Tabs>
-      </div>
-      <div className="main" css={style.wrapper(showNaviBar)} >
-        <Outlet />
-      </div>
-    </>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <Paper elevation={0} square css={style.paper}>
+          <Box css={style.navigator(showNaviBar)} sx={{
+            bgcolor: 'background.default',
+            zIndex: 50
+          }}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              aria-label="nav tabs example"
+              role="navigation"
+              variant="scrollable"
+              scrollButtons
+              allowScrollButtonsMobile
+            >
+              <NameLogo />
+              <LinkTab label="초대합니다!" value="home" />
+              <LinkTab label="사진" value="photos" />
+              <LinkTab label="오시는 길" value="directions" />
+              <LinkTab label="축하의 마음 전하기" value="wishes" />
+            </Tabs>
+          </Box>
+          <Box className="main" css={style.wrapper(showNaviBar)} >
+            <Outlet />
+            <Fab
+              size="small"
+              color="secondary"
+              css={style.colorModeFab}
+              onClick={colorMode.toggleColorMode}
+
+            >
+              {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
+            </Fab>
+            <Fab
+              size="small"
+              color="secondary"
+              css={style.soundFab}
+              onClick={playToggle}
+
+            >
+              {play ? <PlayArrowIcon /> : <PauseIcon />}
+            </Fab>
+          </Box>
+        </Paper>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   );
 };
 

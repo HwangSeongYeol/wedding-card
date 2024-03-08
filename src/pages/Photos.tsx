@@ -5,9 +5,6 @@ import photo3 from "@src/assets/photo3.jpg"
 
 const Photos = () => {
   return <div className="pages photos" css={style.wrapper}>
-    <div>
-      Photos
-    </div>
     <div css={style.photoWrapper}>
       <img src={photo1} />
       <img src={photo2} />

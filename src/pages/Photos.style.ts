@@ -5,7 +5,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1000px;
   `,
   photoWrapper: css`
     display: flex;
@@ -13,6 +12,9 @@ export default {
     gap: 5px;
     justify-content: center;
     overflow: hidden;
-    object-fit: cover;
+    img {
+      object-fit: contain;
+      height: calc(100vh - 50px);
+    }
   `,
 };

@@ -5,7 +5,6 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
-    max-width: 1000px;
   `,
   mainImageWrapper: css`
     display: flex;
@@ -16,7 +15,6 @@ export default {
   mainImageFooter: css`
     position: absolute;
     top: 0;
-    background-color: aliceblue;
     border-radius: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -35,7 +33,7 @@ export default {
     /* width: 100vw; */
     height: 100vh;
   `,
-  description1: css`
+  description: css`
     word-break: break-all;
   `,
 };
