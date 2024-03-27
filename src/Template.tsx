@@ -8,6 +8,7 @@ import Brightness7Icon from '@mui/icons-material/Brightness7';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import PauseIcon from '@mui/icons-material/Pause';
 import getDesignTokens from "./getDesignTokens.ts";
+import musicFile from "./assets/Canon in D (Pachelbel's Canon) - Cello & Piano.mp3"
 
 
 const ColorModeContext = createContext({ toggleColorMode: () => { } });
@@ -66,9 +67,8 @@ const Template = () => {
   let startY = 0;
   const deviceMode = useMediaQuery('(prefers-color-scheme: dark)') ? 'dark' : 'dark';
   const [mode, setMode] = useState<'light' | 'dark'>(deviceMode);
-
-  const [song] = useState(new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"));
-  const [play, setPlay] = useState(true);
+  const [song] = useState(new Audio(musicFile));
+  const [play, setPlay] = useState(false);
 
   const playToggle = () => setPlay(!play);
 
@@ -105,6 +105,7 @@ const Template = () => {
 
   useEffect(() => {
     play ? song.play() : song.pause();
+    song.loop = true;
   }, [song, play]);
 
   useEffect(() => {
@@ -194,7 +195,7 @@ const Template = () => {
               onClick={playToggle}
 
             >
-              {play ? <PlayArrowIcon /> : <PauseIcon />}
+              {play ? <PauseIcon /> : <PlayArrowIcon />}
             </Fab>
           </Box>
         </Paper>

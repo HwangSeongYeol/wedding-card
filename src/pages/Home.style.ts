@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { Theme } from "@emotion/react";
 
 export default {
   wrapper: css`
@@ -35,5 +36,18 @@ export default {
   `,
   description: css`
     word-break: break-all;
+  `,
+  verticalWrapper: css`
+    position: relative;
+    height: 150px;
+  `,
+  vertical: (theme: Theme) => css`
+    border: 2px solid ${theme.palette.primary.main};
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 5px;
+    top: 0;
   `,
 };

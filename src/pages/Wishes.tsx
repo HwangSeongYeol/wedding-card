@@ -106,9 +106,9 @@ const Wishes = () => {
 
   return <div className="pages wishes" css={style.wrapper}>
     <div>
-      <AccountInfo className="Groom-Bride" title="신랑 ˙ 신부 계좌 안내" peopleA="황성열" addressA="745015-52-212191 농협" peopleB="이서라" addressB="745015-52-212191 농협" />
+      <AccountInfo className="Groom-Bride" title="신랑 · 신부 계좌 안내" peopleA="황성열" addressA="745015-52-212191 농협" peopleB="이서라" addressB="745015-52-212191 농협" />
       <AccountInfo className="Groom-Aside" title="신랑 측 혼주 계좌 안내" peopleA="황홍석" addressA="745015-52-212191 농협" peopleB="윤영희" addressB="745015-52-212191 농협" />
-      <AccountInfo className="Bride-Aside" title="신부 측 혼주 계좌 안내" peopleA="이칠성" addressA="745015-52-212191 농협" peopleB="탁은정" addressB="745015-52-212191 농협" />
+      <AccountInfo className="Bride-Aside" title="신부 측 혼주 계좌 안내" peopleA="이칠성" addressA="504-21-0711-139 국민" peopleB="탁은정" addressB="533-12-125477 농협" />
     </div>
     <div css={style.commentsWrapper}>
       <form onSubmit={handleSubmit} css={style.editComment}>

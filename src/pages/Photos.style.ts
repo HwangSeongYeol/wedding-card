@@ -14,7 +14,7 @@ export default {
     overflow: hidden;
     img {
       object-fit: contain;
-      height: calc(100vh - 50px);
+      /* height: calc(100vh); */
     }
   `,
 };
