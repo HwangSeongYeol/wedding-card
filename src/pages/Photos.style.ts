@@ -9,12 +9,12 @@ export default {
   photoWrapper: css`
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 15px;
     justify-content: center;
     overflow: hidden;
     img {
       object-fit: contain;
-      /* height: calc(100vh); */
+      max-height: calc(100vh);
     }
   `,
 };

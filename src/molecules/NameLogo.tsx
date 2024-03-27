@@ -5,11 +5,11 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 const NameLogo = () => {
   return (
     <Box className="logo-wrapper" css={style.wrapper} sx={{ bgcolor: 'primary.main' }}>
-      <strong>황성열</strong>
+      <span>황성열</span>
       <i>
         <FavoriteIcon fontSize="inherit" />
       </i>
-      <strong>이서라</strong>
+      <span>이서라</span>
     </Box>
   )
 }

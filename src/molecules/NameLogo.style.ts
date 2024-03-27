@@ -11,6 +11,9 @@ export default {
     user-select: none;
     i {
       margin: 0 2px;
+      position: relative;
+      top: 2px;
     }
+    font-family: Ownglyph_Dailyokja-Rg;
   `,
 };

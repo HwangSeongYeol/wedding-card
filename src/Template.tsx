@@ -97,7 +97,8 @@ const Template = () => {
         ))
     ) {
       setValue(newValue);
-      navigate(`${newValue}`)
+      navigate(`${newValue}`, { replace: true }) // 뒤로가기 생기지 않게
+      window.scrollTo(0, 0);
     }
   };
 

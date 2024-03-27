@@ -35,7 +35,16 @@ export default {
     height: 100vh;
   `,
   description: css`
+    font-family: "Ownglyph_Dailyokja-Rg";
     word-break: break-all;
+  `,
+  description1: css`
+    font-family: "Ownglyph_Dailyokja-Rg";
+    font-size: 2.5rem;
+    word-break: break-all;
+    display: flex;
+    justify-content: center;
+    text-align: center;
   `,
   verticalWrapper: css`
     position: relative;
