@@ -1,4 +1,4 @@
-import { Box } from "@mui/material"
+import Box from "@mui/material/Box";
 import style from "./NameLogo.style"
 import FavoriteIcon from '@mui/icons-material/Favorite';
 

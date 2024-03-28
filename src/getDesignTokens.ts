@@ -1,5 +1,4 @@
 import { PaletteMode } from "@mui/material";
-import { amber, deepPurple, grey, pink } from "@mui/material/colors";
 
 export default (mode: PaletteMode) => ({
   palette: {
@@ -7,23 +6,43 @@ export default (mode: PaletteMode) => ({
     ...(mode === "light"
       ? {
           // palette values for light mode
-          primary: pink,
-          secondary: deepPurple,
-          divider: amber[200],
-          background: {},
+          primary: {
+            main: "#FEDBD0",
+            dark: "#442C2E",
+          },
+          secondary: {
+            main: "#FEEAE6",
+          },
+          error: {
+            main: "#D00036",
+          },
+          background: {
+            default: "#fffbfa",
+            paper: "#fffbfa",
+          },
           text: {
-            primary: grey[900],
-            secondary: grey[800],
+            primary: "#442c2e",
+            secondary: "grey[800]",
           },
         }
       : {
-          // palette values for dark mode
-          primary: pink,
-          secondary: deepPurple,
-          background: {},
+          primary: {
+            main: "#FEDBD0",
+            dark: "#442C2E",
+          },
+          secondary: {
+            main: "#FEEAE6",
+          },
+          error: {
+            main: "#D00036",
+          },
+          background: {
+            default: "#3E2723",
+            paper: "#4E342E",
+          },
           text: {
-            primary: "#fff",
-            secondary: grey[500],
+            primary: "#ffffff",
+            secondary: "#D7CCC8",
           },
         }),
   },

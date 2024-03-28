@@ -8,6 +8,32 @@ export default {
     align-items: center;
     position: relative;
   `,
+  welcome: css`
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to bottom, #f1eab9ee, #ff8c8cee);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+  `,
+  heartBeating: css`
+    font-size: 3rem;
+    color: #ffdddd;
+    animation-name: beat;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+    @keyframes beat {
+      0% {
+        transform: scale(1);
+      }
+      75% {
+        transform: scale(0.8);
+      }
+    }
+  `,
   navigator: (showNaviBar: boolean) => css`
     position: fixed;
     top: ${showNaviBar ? 0 : -50}px;
@@ -15,6 +41,7 @@ export default {
     height: 50px;
     display: flex;
     justify-content: center;
+    z-index: 50;
     button {
       all: unset;
       flex: 1 1 auto;

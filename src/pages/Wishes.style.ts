@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+import { Theme, css } from "@emotion/react";
 
 export default {
   wrapper: css`
@@ -6,17 +6,6 @@ export default {
     flex-direction: column;
     margin: 0 auto;
     padding: 8px;
-    .Groom-Bride .AccoutInfotitle {
-      background-color: #fa3a51;
-    }
-    .Groom-Aside .AccoutInfotitle {
-      background-color: #173263;
-      color: white;
-    }
-    .Bride-Aside .AccoutInfotitle {
-      background-color: #e83a39;
-      color: white;
-    }
   `,
   title: css`
     width: 100%;
@@ -32,12 +21,74 @@ export default {
     align-items: center;
     justify-content: center;
   `,
-  commentsWrapper: css`
+  userInfoWrapper: css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `,
+  wishesWrapper: css`
+    font-family: "DNFForgedBlade";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    .wishes-wrapper-header {
+      font-size: 2rem;
+      margin-bottom: 50px;
+    }
+    .character-wrapper {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      .broom {
+        .phone {
+          color: #78c0e9;
+        }
+      }
+      .bride {
+        .phone {
+          color: #f79e9e;
+        }
+      }
+    }
+    .wishes-wrapper-header2 {
+      font-size: 1.5rem;
+      margin-bottom: 50px;
+    }
+    .parents-wrapper {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: 0.1fr 1fr 1fr;
+      gap: 1rem 3rem;
+      text-align: center;
+      .broom {
+        .phone,
+        &.title {
+          color: #78c0e9;
+        }
+      }
+      .bride {
+        .phone,
+        &.title {
+          color: #f79e9e;
+        }
+      }
+    }
+  `,
+  address: css`
+    font-family: "DNFForgedBlade";
+    border-radius: 50px;
+    font-size: 13px;
+  `,
+
+  commentsWrapper: (theme: Theme) => css`
     .comments-header {
     }
     .comments-body {
-      border-top: 2px solid #fa3a51;
-      border-bottom: 2px solid #fa3a51;
+      border-top: 2px solid ${theme.palette.primary.main};
+      border-bottom: 2px solid ${theme.palette.primary.main};
       padding: 4px;
       display: flex;
       flex-direction: column;

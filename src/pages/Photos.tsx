@@ -6,7 +6,7 @@ const Photos = () => {
     <div css={style.photoWrapper}>
       {
         Object.values(pictures).map((src) => {
-          return <img src={src} />
+          return <img key={src} src={src} />
         })
       }
     </div>

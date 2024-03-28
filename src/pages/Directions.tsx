@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import style from "./Directions.style";
 import { Loader } from "@googlemaps/js-api-loader"
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import naverIcon from "@src/assets/naver_icon.png";
 import kakaoMapIcon from "@src/assets/kakao_map.png";
 import CopyIconButton from "@src/utils/CopyIconButton";

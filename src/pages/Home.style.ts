@@ -11,7 +11,7 @@ export default {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    position: sticky;
+    position: relative;
   `,
   mainImageFooter: css`
     position: absolute;
@@ -39,8 +39,9 @@ export default {
     word-break: break-all;
   `,
   description1: css`
+    margin: 1rem 0;
     font-family: "Ownglyph_Dailyokja-Rg";
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     word-break: break-all;
     display: flex;
     justify-content: center;

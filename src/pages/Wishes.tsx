@@ -4,7 +4,9 @@ import { db } from "@src/firebase";
 import { collection, addDoc, query, orderBy, onSnapshot, DocumentData, Timestamp, deleteDoc, doc } from "firebase/firestore";
 import CopyIconButton from "@src/utils/CopyIconButton";
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField } from "@mui/material";
-import { Delete } from "@mui/icons-material";
+import Delete from "@mui/icons-material/Delete";
+import PhoneIcon from '@mui/icons-material/Phone';
+import EmailIcon from '@mui/icons-material/Email';
 
 interface Comment {
   id?: string;
@@ -12,21 +14,50 @@ interface Comment {
   content?: string;
   createdAt?: Timestamp;
   ipAddress?: string;
-  password?: string; // 실제 앱에서는 이 필드를 클라이언트에서 직접 관리하지 않는 방식을 고려해야 합니다.
+  password?: string;
 }
 
-const AccountInfo = ({ className, title, peopleA, addressA, peopleB, addressB }: { className: string, title: string, peopleA: string, addressA: string, peopleB: string, addressB: string }) => {
-  return <div className={className}>
-    <div className="AccoutInfotitle" css={style.title}>{title}</div>
-    <div css={style.infoWrapper}>
-      <div>{peopleA}</div>
-      <div>{addressA} <CopyIconButton text={addressA} /></div>
+interface IuserInfo {
+  className: string,
+  title: string,
+  pNum: string,
+  address: string,
+}
+
+const UserInfo = (
+  {
+    className,
+    title,
+    pNum,
+    address,
+  }: IuserInfo) => {
+
+  return (
+    <div className={className} css={style.userInfoWrapper}>
+      <span>{title}</span>
+      <div>
+        <IconButton
+          className="phone"
+          LinkComponent={"a"}
+          href={`tel:${pNum}`}
+        >
+          <PhoneIcon />
+        </IconButton>
+        <IconButton
+          className="sms"
+          LinkComponent={"a"}
+          href={`sms:${pNum}`}
+        >
+          <EmailIcon />
+        </IconButton >
+      </div>
+      <CopyIconButton
+        css={style.address}
+        text={address}
+        address
+      />
     </div>
-    <div css={style.infoWrapper}>
-      <div>{peopleB}</div>
-      <div>{addressB} <CopyIconButton text={addressB} /></div>
-    </div>
-  </div>
+  )
 }
 
 const Wishes = () => {
@@ -105,10 +136,51 @@ const Wishes = () => {
   }, []);
 
   return <div className="pages wishes" css={style.wrapper}>
-    <div>
-      <AccountInfo className="Groom-Bride" title="신랑 · 신부 계좌 안내" peopleA="황성열" addressA="745015-52-212191 농협" peopleB="이서라" addressB="745015-52-212191 농협" />
-      <AccountInfo className="Groom-Aside" title="신랑 측 혼주 계좌 안내" peopleA="황홍석" addressA="745015-52-212191 농협" peopleB="윤영희" addressB="745015-52-212191 농협" />
-      <AccountInfo className="Bride-Aside" title="신부 측 혼주 계좌 안내" peopleA="이칠성" addressA="504-21-0711-139 국민" peopleB="탁은정" addressB="533-12-125477 농협" />
+    <div css={style.wishesWrapper}>
+      <span className="wishes-wrapper-header">마음 전하실 곳</span>
+      <div className="character-wrapper">
+        <UserInfo
+          className="broom"
+          title="신랑에게 연락하기"
+          pNum="010-3527-2726"
+          address="745015-52-212191 농협"
+        />
+        <UserInfo
+          className="bride"
+          title="신부에게 연락하기"
+          pNum="010-5717-9605"
+          address="100017864980 토스뱅크"
+        />
+      </div>
+      <span className="wishes-wrapper-header2">혼주에게 연락하기</span>
+      <div className="parents-wrapper">
+        <span className="broom title">신랑측 혼주</span>
+        <UserInfo
+          className="broom"
+          title="아버지 황홍석"
+          pNum="010-5034-2726"
+          address="780-01-022817 농협"
+        />
+        <UserInfo
+          className="broom"
+          title="어머니 윤영희"
+          pNum="010-6242-2726"
+          address="745010-52-104095 농협"
+        />
+        <span className="bride title"> 신부측 혼주</span>
+        <UserInfo
+          className="bride"
+          title="아버지 이칠성"
+          pNum="010-5414-9605"
+          address="504-21-0711-139 국민"
+        />
+        <UserInfo
+          className="bride"
+          title="어머니 탁은정"
+          pNum="010-4142-9605"
+          address="533-12-125477 농협"
+        />
+      </div>
     </div>
     <div css={style.commentsWrapper}>
       <form onSubmit={handleSubmit} css={style.editComment}>

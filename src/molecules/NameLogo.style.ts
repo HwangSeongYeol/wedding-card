@@ -6,7 +6,7 @@ export default {
     border-radius: 100%;
     padding: 8px;
     margin-top: 4px;
-    color: #fff;
+    color: #442c2e;
     text-align: center;
     user-select: none;
     i {
