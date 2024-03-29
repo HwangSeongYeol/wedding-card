@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { Suspense, lazy } from 'react';
 import SuspenseView from "@src/molecules/Suspense";
 
@@ -20,6 +20,15 @@ const Photos = lazy(() => loadComponentWithDelay(() => import("@src/pages/Photos
 const Directions = lazy(() => loadComponentWithDelay(() => import("@src/pages/Directions")));
 const Wishes = lazy(() => loadComponentWithDelay(() => import("@src/pages/Wishes")));
 
+const Pages = () => {
+  return <div>
+    <div id="home"><Home /></div>
+    <div id="photos"><Photos /></div>
+    <div id="directions"><Directions /></div>
+    <div id="wishes"><Wishes /></div>
+  </div>
+}
+
 const RouterInfo = [
   {
     path: "/",
@@ -31,28 +40,32 @@ const RouterInfo = [
     children: [
       {
         path: "/",
-        element: <Navigate to="home" />,
-      },
-      {
-        path: "/home",
-        element: <Home />,
-      },
-      {
-        path: "/photos",
-        element: <Photos />,
-      },
-      {
-        path: "/directions",
-        element: <Directions />,
-      },
-      {
-        path: "/wishes",
-        element: <Wishes />,
-      },
-      {
-        path: "*",
-        element: <Navigate to="home" />,
-      },
+        element: <Pages />,
+      }
+      // {
+      //   path: "/",
+      //   element: <Navigate to="home" />,
+      // },
+      // {
+      //   path: "/home",
+      //   element: <Home />,
+      // },
+      // {
+      //   path: "/photos",
+      //   element: <Photos />,
+      // },
+      // {
+      //   path: "/directions",
+      //   element: <Directions />,
+      // },
+      // {
+      //   path: "/wishes",
+      //   element: <Wishes />,
+      // },
+      // {
+      //   path: "*",
+      //   element: <Navigate to="home" />,
+      // },
     ]
   },
 

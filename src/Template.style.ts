@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { Theme } from "@mui/material";
 
 export default {
   paper: css`
@@ -9,7 +10,7 @@ export default {
     position: relative;
   `,
   welcome: css`
-    position: absolute;
+    position: fixed;
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to bottom, #f1eab9ee, #ff8c8cee);
@@ -49,6 +50,17 @@ export default {
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+  `,
+  tabs: (theme: Theme) => css`
+    .MuiTabs-indicator {
+      background-image: linear-gradient(
+        to top,
+        ${theme.palette.primary.main},
+        rgba(254, 219, 208, 0)
+      );
+      background-color: transparent;
+      height: 10px;
     }
   `,
   wrapper: (showNaviBar: boolean) => css`

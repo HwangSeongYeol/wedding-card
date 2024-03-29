@@ -1,22 +1,29 @@
 import { Box } from "@mui/material";
 import style from "./Home.style"
 import pic4935 from "@src/assets/pictures/SOK_4935.jpg"
+import WaveWrapper from "@src/molecules/WaveWrapper";
 
 const Home = () => {
   return <div className="pages home" css={style.wrapper}>
+    <Box css={style.topWrapper}>
+      <span className="date">2024.05.25 </span>
+      <span className="day">SATURDAY</span>
+    </Box>
     <div css={style.mainImageWrapper}>
+      <WaveWrapper />
       <img
         css={style.img}
         src={pic4935}
-      >
-      </img>
-      <Box css={style.mainImageFooter} sx={{ bgcolor: "background.default" }}>
-        <span css={style.mainImageDate}>2024.05.25 토요일 오후 1시</span>
-        <span css={style.mainImageLocation}>전주 엔타워 2층 카시오페아홀</span>
-      </Box>
+      />
     </div>
-    <Box css={style.verticalWrapper}>
-      <hr css={style.vertical} />
+    <Box css={style.nameWrapper}>
+      <span className="name">황성열&nbsp;&nbsp;&nbsp;·&nbsp;&nbsp;&nbsp;이서라</span>
+      <span className="time">2024년 5월 25일 토요일 오후 1시 10분</span>
+      <span className="place">전주 엔타워 컨벤션 웨딩홀 2층 카시오페아홀</span>
+    </Box>
+    <Box css={style.invitationWrapper}>
+      <span className="invitation">INVITATION</span>
+      <span className="title">소중한 분들을 초대합니다</span>
     </Box>
 
     <span css={style.description1}>
@@ -27,9 +34,6 @@ const Home = () => {
       서로를 의지하며<br />
       라떼처럼 달콤하게 살아가요<br />
     </span>
-    <Box css={style.verticalWrapper}>
-      <hr css={style.vertical} />
-    </Box>
     <span
       css={style.description}
     >

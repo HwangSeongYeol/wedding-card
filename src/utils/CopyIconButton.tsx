@@ -48,7 +48,7 @@ const CopyIconButton = ({ className, text, address }: { className?: string, text
     <Snackbar
       anchorOrigin={{ "horizontal": "center", "vertical": "bottom" }}
       open={open}
-      autoHideDuration={750}
+      autoHideDuration={1250}
       onClose={handleClose}
       message={`${text}(이)가 클립보드에 복사되었습니다.`}
     />

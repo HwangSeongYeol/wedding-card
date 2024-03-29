@@ -6,33 +6,67 @@ export default {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    align-items: center;
+  `,
+  topWrapper: css`
+    display: flex;
+    flex-direction: column;
+    font-family: "Crimson Pro", serif;
+    align-items: center;
+    .date {
+      font-size: 2.5rem;
+    }
+    .day {
+      font-size: 1.5rem;
+      letter-spacing: 3px;
+    }
   `,
   mainImageWrapper: css`
     display: flex;
     justify-content: center;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 2 / 3;
+    height: 80vh;
+    margin-bottom: 1.2rem;
   `,
-  mainImageFooter: css`
-    position: absolute;
-    top: 0;
-    border-radius: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 180px;
-    width: 270px;
-  `,
-  mainImageDate: css`
-    margin-top: 60px;
-  `,
-  mainImageLocation: css``,
   img: css`
     object-fit: cover;
-    /* width: 100vw; */
-    height: 100vh;
+    width: 100%;
+    height: 100%;
+  `,
+  nameWrapper: (theme: Theme) => css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "DNFForgedBlade";
+    gap: 5px;
+    margin-bottom: 4rem;
+    .name {
+      color: ${theme.palette.text.primary};
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    .time,
+    .place {
+      color: ${theme.palette.text.secondary};
+    }
+  `,
+  invitationWrapper: css`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    .invitation {
+      font-size: 0.6rem;
+      letter-spacing: 5px;
+      font-family: "Crimson Pro";
+    }
+    .title {
+      font-size: 1.2rem;
+      font-family: "DNFForgedBlade";
+    }
   `,
   description: css`
     font-family: "Ownglyph_Dailyokja-Rg";
@@ -46,18 +80,5 @@ export default {
     display: flex;
     justify-content: center;
     text-align: center;
-  `,
-  verticalWrapper: css`
-    position: relative;
-    height: 150px;
-  `,
-  vertical: (theme: Theme) => css`
-    border: 2px solid ${theme.palette.primary.main};
-    height: 100%;
-    position: absolute;
-    left: 50%;
-    margin-left: -3px;
-    border-radius: 5px;
-    top: 0;
   `,
 };

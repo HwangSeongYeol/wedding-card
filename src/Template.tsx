@@ -1,4 +1,4 @@
-import { Outlet, useLocation, useNavigate } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import style from "./Template.style.ts";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -20,6 +20,7 @@ import musicFile from "./assets/Canon in D (Pachelbel's Canon) - Cello & Piano.m
 import TypingAnimation from "./molecules/TypingAnimation.tsx";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Fallback from "./molecules/Fallback.tsx";
+import { scroller } from "react-scroll";
 
 const ColorModeContext = createContext({ toggleColorMode: () => { } });
 
@@ -42,6 +43,15 @@ interface LinkTabProps {
   label?: string;
   value?: string;
   selected?: boolean;
+}
+
+
+const scrollToElement = (elementName: string) => {
+  scroller.scrollTo(elementName, {
+    duration: 800,
+    delay: 0,
+    smooth: 'easeInOutQuart'
+  });
 }
 
 const LinkTab = ({ label, value, selected, ...props }: LinkTabProps) => {
@@ -68,7 +78,6 @@ const isMobile = () => {
 }
 
 const Template = () => {
-  const navigate = useNavigate();
   const { pathname } = useLocation();
   const [value, setValue] = useState(pathname.replace("/", ""));
   // State variables to manage scroll behavior
@@ -108,7 +117,7 @@ const Template = () => {
     [mode],
   );
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleTabClick = (event: React.SyntheticEvent, newValue: string) => {
     // event.type can be equal to focus with selectionFollowsFocus.
     if (
       event.type !== 'click' ||
@@ -117,9 +126,10 @@ const Template = () => {
           event as React.MouseEvent<HTMLAnchorElement, MouseEvent>,
         ))
     ) {
-      setValue(newValue);
-      navigate(`${newValue}`, { replace: true }) // 뒤로가기 생기지 않게
-      window.scrollTo(0, 0);
+      // setValue(newValue);
+      // navigate(`${newValue}`, { replace: true }) // 뒤로가기 생기지 않게
+      // window.scrollTo(0, 0);
+      scrollToElement(newValue)
     }
   };
 
@@ -203,14 +213,15 @@ const Template = () => {
             bgcolor: 'background.paper',
           }}>
             <Tabs
+              css={style.tabs}
               value={value}
-              onChange={handleChange}
+              onChange={handleTabClick}
               aria-label="nav tabs example"
               role="navigation"
               variant="scrollable"
               scrollButtons
               allowScrollButtonsMobile
-              indicatorColor="secondary"
+              indicatorColor="primary"
             >
               <NameLogo />
               <LinkTab label="초대합니다!" value="home" />
@@ -251,7 +262,6 @@ const Template = () => {
                 color="secondary"
                 css={style.soundFab}
                 onClick={playToggle}
-
               >
                 {play ? <PauseIcon /> : <PlayArrowIcon />}
               </Fab>

@@ -22,7 +22,7 @@ export default (mode: PaletteMode) => ({
           },
           text: {
             primary: "#442c2e",
-            secondary: "grey[800]",
+            secondary: "#885A5A",
           },
         }
       : {
