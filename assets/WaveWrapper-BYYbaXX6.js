@@ -1,4 +1,4 @@
-import{c as e,r as t,a as l,b as i,F as o}from"./index-Cj55uGZC.js";const m={wrapper:e`
+import{c as e,r as t,a as l,b as i,F as o}from"./index-Bb8xVzA7.js";const m={wrapper:e`
     display: flex;
     flex-direction: column;
     margin: 0 auto;
@@ -56,20 +56,6 @@ import{c as e,r as t,a as l,b as i,F as o}from"./index-Cj55uGZC.js";const m={wra
     flex-direction: column;
     align-items: center;
     color: black;
-  `,invitationWrapper:e`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    .invitation {
-      font-size: 0.6rem;
-      letter-spacing: 5px;
-      font-family: "Crimson Pro";
-    }
-    .title {
-      font-size: 1.2rem;
-      font-family: "DNFForgedBlade";
-    }
   `,description:e`
     font-family: "Ownglyph_Dailyokja-Rg";
     word-break: break-all;
