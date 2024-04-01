@@ -16,6 +16,7 @@ export default {
   `,
   descriptionWrapper: css`
     display: grid;
+    margin-top: 10px;
     grid-template-columns: 120px auto;
     align-items: center;
 

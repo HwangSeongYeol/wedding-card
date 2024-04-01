@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { Theme } from "@emotion/react";
+import { Theme } from "@mui/material";
 
 export default {
   wrapper: css`
@@ -7,6 +7,7 @@ export default {
     flex-direction: column;
     margin: 0 auto;
     align-items: center;
+    padding: 8px;
   `,
   topWrapper: css`
     display: flex;
@@ -22,6 +23,7 @@ export default {
     }
   `,
   mainImageWrapper: css`
+    max-width: 100%;
     display: flex;
     justify-content: center;
     overflow: hidden;
@@ -53,32 +55,49 @@ export default {
       color: ${theme.palette.text.secondary};
     }
   `,
-  invitationWrapper: css`
+  imageDescription: css`
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 3.5rem;
+    font-family: "Ownglyph_Dailyokja-Rg";
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
-    .invitation {
-      font-size: 0.6rem;
-      letter-spacing: 5px;
-      font-family: "Crimson Pro";
-    }
-    .title {
-      font-size: 1.2rem;
-      font-family: "DNFForgedBlade";
-    }
+    color: black;
   `,
   description: css`
     font-family: "Ownglyph_Dailyokja-Rg";
     word-break: break-all;
   `,
-  description1: css`
+  description1: (theme: Theme) => css`
     margin: 1rem 0;
     font-family: "Ownglyph_Dailyokja-Rg";
     font-size: 2.3rem;
     word-break: break-all;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+    b {
+      color: ${theme.palette.error.main};
+    }
+    @media screen and (width < 450px) {
+      font-size: 1.8rem;
+    }
+  `,
+  description2: (theme: Theme) => css`
+    margin: 1rem 0;
+    font-family: "DNFForgedBlade";
+    font-size: 1.1rem;
+    word-break: break-all;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    .of {
+      color: ${theme.palette.text.secondary};
+      font-size: 0.9rem;
+    }
   `,
 };

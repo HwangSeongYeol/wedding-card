@@ -1,4 +1,4 @@
-// import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { Suspense, lazy } from 'react';
 import SuspenseView from "@src/molecules/Suspense";
 
@@ -19,6 +19,8 @@ const Home = lazy(() => loadComponentWithDelay(() => import("@src/pages/Home")))
 const Photos = lazy(() => loadComponentWithDelay(() => import("@src/pages/Photos")));
 const Directions = lazy(() => loadComponentWithDelay(() => import("@src/pages/Directions")));
 const Wishes = lazy(() => loadComponentWithDelay(() => import("@src/pages/Wishes")));
+const Reception = lazy(() => loadComponentWithDelay(() => import("@src/pages/Reception")));
+const Wrapup = lazy(() => loadComponentWithDelay(() => import("@src/pages/Wrapup")));
 
 const Pages = () => {
   return <div>
@@ -26,6 +28,8 @@ const Pages = () => {
     <div id="photos"><Photos /></div>
     <div id="directions"><Directions /></div>
     <div id="wishes"><Wishes /></div>
+    <div id="reception"><Reception /></div>
+    <div id="wrapup"><Wrapup /></div>
   </div>
 }
 
@@ -41,6 +45,10 @@ const RouterInfo = [
       {
         path: "/",
         element: <Pages />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="" />
       }
       // {
       //   path: "/",

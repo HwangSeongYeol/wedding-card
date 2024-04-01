@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import naverIcon from "@src/assets/naver_icon.png";
 import kakaoMapIcon from "@src/assets/kakao_map.png";
 import CopyIconButton from "@src/utils/CopyIconButton";
+import TitleComponent from "@src/molecules/TitleComponent";
 
 const loader = new Loader({
   apiKey: import.meta.env.VITE_GOOGLE_MAP_PLATFORM_API,
@@ -62,6 +63,9 @@ const Directions = () => {
   }, []);
 
   return <div className="pages directions" css={style.wrapper}>
+    <TitleComponent
+      subTitle="LOCATION"
+      title="오시는 길" />
     <div css={style.descriptionWrapper}>
       <span className="subtitle">오시는 길</span>
       <span className="description">전주 엔타워컨밴션웨딩홀</span>

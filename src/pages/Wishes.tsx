@@ -3,7 +3,7 @@ import style from "./Wishes.style";
 import { db } from "@src/firebase";
 import { collection, addDoc, query, orderBy, onSnapshot, DocumentData, Timestamp, deleteDoc, doc } from "firebase/firestore";
 import CopyIconButton from "@src/utils/CopyIconButton";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField, Typography } from "@mui/material";
 import Delete from "@mui/icons-material/Delete";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
@@ -91,7 +91,8 @@ const Wishes = () => {
     setPassword('');
   };
 
-  const handleCheck = async () => {
+  const handleCheck = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
     if (!targetDoc) return;
     if (dialogPassword === targetPassword || dialogPassword === "성열") {
       await deleteDoc(doc(db, 'comments', targetDoc));
@@ -117,7 +118,6 @@ const Wishes = () => {
     // Firestore에서 댓글을 실시간으로 불러옵니다.
     const q = query(collection(db, 'comments'), orderBy('createdAt', 'desc'));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      console.log('querySnapshot', querySnapshot)
       const commentsData = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data() as DocumentData,
@@ -191,27 +191,29 @@ const Wishes = () => {
           className="edit-comment-nickName"
           hiddenLabel
           type="text"
-          variant="filled"
+          variant="outlined"
           size="small"
           fullWidth
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="닉네임"
+          inputProps={{ maxLength: 10, autocomplete: 'off' }}
         />
         <TextField
           className="edit-comment-password"
           hiddenLabel
           type="password"
-          variant="filled"
+          variant="outlined"
           size="small"
           fullWidth
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="비밀번호"
+          inputProps={{ maxLength: 15, autocomplete: 'off' }}
         />
         <TextField
           className="edit-comment-content"
-          variant="filled"
+          variant="outlined"
           hiddenLabel
           multiline
           maxRows={3}
@@ -219,10 +221,14 @@ const Wishes = () => {
           value={content}
           onChange={(e) => setContent(e.target.value)}
           placeholder="축사를 남겨주세요.."
+          inputProps={{ maxLength: 300, autocomplete: 'off' }}
         />
         <div
           className="edit-comment-actions"
         >
+          <Typography>
+            {`${content.length} / 300`}
+          </Typography>
           <Button
             css={style.submitButton}
             type="submit"
@@ -282,6 +288,7 @@ const Wishes = () => {
             onChange={(e) => setDialogPassword(e.target.value)}
             size="small"
             placeholder="비밀번호"
+            inputProps={{ maxLength: 15, autocomplete: 'off' }}
           />
         </DialogContent>
         <DialogActions>

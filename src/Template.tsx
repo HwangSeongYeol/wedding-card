@@ -48,9 +48,10 @@ interface LinkTabProps {
 
 const scrollToElement = (elementName: string) => {
   scroller.scrollTo(elementName, {
+    offset: -50,
     duration: 800,
     delay: 0,
-    smooth: 'easeInOutQuart'
+    smooth: 'easeInOutQuart',
   });
 }
 
@@ -228,6 +229,7 @@ const Template = () => {
               <LinkTab label="사진" value="photos" />
               <LinkTab label="오시는 길" value="directions" />
               <LinkTab label="축하의 마음 전하기" value="wishes" />
+              <LinkTab label="지방 피로연 안내" value="reception" />
             </Tabs>
           </Box>
           <Box className="main" css={style.wrapper(showNaviBar)} >

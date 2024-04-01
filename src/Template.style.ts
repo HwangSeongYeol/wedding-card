@@ -14,6 +14,7 @@ export default {
     width: 100vw;
     height: 100vh;
     background: linear-gradient(to bottom, #f1eab9ee, #ff8c8cee);
+    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     justify-content: center;

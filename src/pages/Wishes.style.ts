@@ -123,20 +123,20 @@ export default {
       grid-area: header / header / header / header;
     }
     .edit-comment-nickName {
-      grid-area: nickname / nickname / nickname / nickname;
+      grid-area: nickname;
     }
     .edit-comment-password {
-      grid-area: password / password / password / password;
+      grid-area: password;
       display: flex;
       justify-content: end;
       align-items: center;
     }
     .edit-comment-content {
-      grid-area: content / content / content / content;
+      grid-area: content;
       height: 100%;
     }
     .edit-comment-actions {
-      grid-area: actions / actions / actions / actions;
+      grid-area: actions;
       display: flex;
       justify-content: center;
       align-items: center;
