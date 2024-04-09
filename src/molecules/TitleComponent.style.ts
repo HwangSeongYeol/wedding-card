@@ -9,11 +9,12 @@ export default {
     .subTitle {
       font-size: 0.6rem;
       letter-spacing: 5px;
-      font-family: "Crimson Pro";
+      margin-right: -5px;
+      font-family: "Nanum Myeongjo";
     }
     .title {
       font-size: 1.2rem;
-      font-family: "DNFForgedBlade";
+      font-family: "Nanum Myeongjo";
     }
   `,
 };

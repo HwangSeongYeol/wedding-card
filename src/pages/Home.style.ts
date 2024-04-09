@@ -12,7 +12,7 @@ export default {
   topWrapper: css`
     display: flex;
     flex-direction: column;
-    font-family: "Crimson Pro", serif;
+    font-family: "Nanum Myeongjo", serif;
     align-items: center;
     .date {
       font-size: 2.5rem;
@@ -41,7 +41,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: "DNFForgedBlade";
+    font-family: "Nanum Myeongjo";
     gap: 5px;
     margin-bottom: 4rem;
     .name {
@@ -73,7 +73,7 @@ export default {
   description1: (theme: Theme) => css`
     margin: 1rem 0;
     font-family: "Ownglyph_Dailyokja-Rg";
-    font-size: 2.3rem;
+    font-size: 1.8rem;
     word-break: break-all;
     display: flex;
     flex-direction: column;
@@ -88,7 +88,7 @@ export default {
   `,
   description2: (theme: Theme) => css`
     margin: 1rem 0;
-    font-family: "DNFForgedBlade";
+    font-family: "Nanum Myeongjo";
     font-size: 1.1rem;
     word-break: break-all;
     display: flex;

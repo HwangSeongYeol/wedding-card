@@ -14,11 +14,12 @@ export default (mode: PaletteMode) => ({
             main: "#FEEAE6",
           },
           error: {
-            main: "#D00036",
+            main: "#FFDC84",
           },
           background: {
             default: "#fffbfa",
-            paper: "#fffbfa",
+            paper: "#FDF5F5",
+            card: "white",
           },
           text: {
             primary: "#442c2e",
@@ -34,11 +35,11 @@ export default (mode: PaletteMode) => ({
             main: "#FEEAE6",
           },
           error: {
-            main: "#D00036",
+            main: "#FFDC84",
           },
           background: {
             default: "#3E2723",
-            paper: "#4E342E",
+            paper: "#463E3A",
           },
           text: {
             primary: "#ffffff",

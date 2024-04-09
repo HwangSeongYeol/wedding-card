@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import style from "./Home.style"
-import pic4935 from "@src/assets/pictures/SOK_4935.jpg"
+import pic4935 from "@src/assets/pictures/SOK_4935.webp"
 import WaveWrapper from "@src/molecules/WaveWrapper";
 import Calendar from "@src/molecules/Calendar";
 import DDayCounter from "@src/molecules/DDayCounter";

@@ -1,6 +1,6 @@
 import WaveWrapper from "@src/molecules/WaveWrapper";
 import style from "./Home.style"
-import pic6605 from "@src/assets/pictures/SOK_6605.jpg"
+import pic6605 from "@src/assets/pictures/SOK_6605.webp"
 
 const Wrapup = () => {
   return <div className="pages wrapup" css={style.wrapper}>

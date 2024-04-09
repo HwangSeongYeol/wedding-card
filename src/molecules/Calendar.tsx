@@ -17,7 +17,6 @@ const Calendar = ({ year, month, day, holidays }: ICalendar) => {
 
   const isHoliday = (date: number) => {
     const checkDate = `${year}-${month.toString().padStart(2, '0')}-${date.toString().padStart(2, '0')}`;
-    console.log(checkDate, holidays, holidays.includes(checkDate))
     return holidays.includes(checkDate);
   };
 

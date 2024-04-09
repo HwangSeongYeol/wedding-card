@@ -10,7 +10,7 @@ export default {
     border-right: 0;
     font-size: 0.9rem;
     text-align: center;
-    font-family: "Crimson Pro", serif;
+    font-family: "Nanum Myeongjo", serif;
     .date-wrapper {
       display: flex;
       flex-direction: row;
@@ -36,7 +36,7 @@ export default {
     }
   `,
   finalMessage: css`
-    font-family: "DNFForgedBlade";
+    font-family: "Nanum Myeongjo";
     text-align: center;
     b {
       color: #f79e9e;

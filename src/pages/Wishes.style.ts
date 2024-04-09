@@ -27,8 +27,13 @@ export default {
     justify-content: center;
     align-items: center;
   `,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  paper: (theme: any) => css`
+    background-color: ${theme.palette.background.card};
+    box-shadow: unset;
+  `,
   wishesWrapper: css`
-    font-family: "DNFForgedBlade";
+    font-family: "Nanum Myeongjo";
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -78,7 +83,7 @@ export default {
     }
   `,
   address: css`
-    font-family: "DNFForgedBlade";
+    font-family: "Nanum Myeongjo";
     border-radius: 50px;
     font-size: 13px;
   `,
@@ -87,16 +92,23 @@ export default {
     .comments-header {
     }
     .comments-body {
-      border-top: 2px solid ${theme.palette.primary.main};
-      border-bottom: 2px solid ${theme.palette.primary.main};
+      /* border-top: 2px solid ${theme.palette.primary.main}; */
+      /* border-bottom: 2px solid ${theme.palette.primary.main}; */
       padding: 4px;
+      margin-top: 1px;
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 10px;
     }
     .comment {
       display: grid;
       padding: 8px;
+      .comment-username {
+        font-size: 1.05rem;
+      }
+      .comment-content {
+        font-family: "Pretendard-Light";
+      }
       .comment-ipAddress {
         color: pink;
         font-size: 0.8rem;
@@ -118,22 +130,32 @@ export default {
   editComment: css`
     display: grid;
     padding: 5px;
+    margin-bottom: 20px;
     gap: 5px;
     .edit-comment-header {
       grid-area: header / header / header / header;
     }
     .edit-comment-nickName {
       grid-area: nickname;
+      .MuiInputBase-input {
+        background-color: white;
+      }
     }
     .edit-comment-password {
       grid-area: password;
       display: flex;
       justify-content: end;
       align-items: center;
+      .MuiInputBase-input {
+        background-color: white;
+      }
     }
     .edit-comment-content {
       grid-area: content;
       height: 100%;
+      &.MuiTextField-root {
+        background-color: white;
+      }
     }
     .edit-comment-actions {
       grid-area: actions;

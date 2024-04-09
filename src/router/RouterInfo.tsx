@@ -28,8 +28,8 @@ const Pages = () => {
     <div id="photos"><Photos /></div>
     <div id="directions"><Directions /></div>
     <div id="wishes"><Wishes /></div>
-    <div id="reception"><Reception /></div>
     <div id="wrapup"><Wrapup /></div>
+    <div id="reception"><Reception /></div>
   </div>
 }
 

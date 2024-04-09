@@ -3,8 +3,8 @@ import style from "./Wishes.style";
 import { db } from "@src/firebase";
 import { collection, addDoc, query, orderBy, onSnapshot, DocumentData, Timestamp, deleteDoc, doc } from "firebase/firestore";
 import CopyIconButton from "@src/utils/CopyIconButton";
-import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField, Typography } from "@mui/material";
-import Delete from "@mui/icons-material/Delete";
+import { Button, Dialog, DialogActions, DialogContent, DialogTitle, IconButton, Paper, Snackbar, TextField } from "@mui/material";
+import Close from "@mui/icons-material/Close";
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 
@@ -196,7 +196,7 @@ const Wishes = () => {
           fullWidth
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="닉네임"
+          placeholder="이름"
           inputProps={{ maxLength: 10, autocomplete: 'off' }}
         />
         <TextField
@@ -220,21 +220,21 @@ const Wishes = () => {
           rows={3}
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder="축사를 남겨주세요.."
+          placeholder="축하 메세지"
           inputProps={{ maxLength: 300, autocomplete: 'off' }}
         />
         <div
           className="edit-comment-actions"
         >
-          <Typography>
-            {`${content.length} / 300`}
-          </Typography>
           <Button
             css={style.submitButton}
             type="submit"
             variant="contained"
+            color="secondary"
+            fullWidth
+            disableElevation
           >
-            등록
+            축하메세지 남기기
           </Button>
         </div>
       </form>
@@ -263,12 +263,12 @@ const Wishes = () => {
           }
 
           return (
-            <Paper key={comment.id} className="comment" elevation={2}>
+            <Paper key={comment.id} className="comment" elevation={1} css={style.paper}>
               <span className="comment-username">
                 {`${comment.username}`}
-                <span className="comment-ipAddress">{` (${comment.ipAddress})`}</span>
+                {/* <span className="comment-ipAddress">{` (${comment.ipAddress})`}</span> */}
                 <IconButton className="comment-delete" size="small" onClick={handleDelete}>
-                  <Delete />
+                  <Close fontSize="inherit" />
                 </IconButton>
               </span>
               <span className="comment-content">{comment.content}</span>

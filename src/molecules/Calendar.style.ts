@@ -9,7 +9,7 @@ export default {
     border-color: #eee;
     padding: 15px 0;
     margin: 35px 0;
-    font-family: DNFForgedBlade;
+    font-family: "Nanum Myeongjo";
   `,
   calendar: css`
     width: 100%;
