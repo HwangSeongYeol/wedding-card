@@ -1,4 +1,4 @@
-import{c as u,r as b,a as m,b as o}from"./index-DrtZs3BX.js";import{C as P,B as M}from"./CopyIconButton-qAcP80CF.js";import{T as R}from"./TitleComponent-4VIqki_2.js";import"./createSvgIcon-CK1rWeNG.js";import"./createTheme-DJt36Tt4.js";import"./utils-e4sgBSk2.js";import"./Box-BDho80U-.js";const g={wrapper:u`
+import{c as u,r as b,a as m,b as o}from"./index-Ce8XP42-.js";import{C as P,B as M}from"./CopyIconButton-DY-W0qyf.js";import{T as R}from"./TitleComponent-B-6bXHzY.js";import"./createSvgIcon-AZk-ZpbE.js";import"./createTheme-CCrEjs8g.js";import"./utils-D8CYwA42.js";import"./Box-DJoUEFm-.js";const g={wrapper:u`
     display: flex;
     flex-direction: column;
     margin: 0 auto 100px auto;

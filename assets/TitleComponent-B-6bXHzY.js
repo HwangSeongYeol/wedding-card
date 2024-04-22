@@ -1,4 +1,4 @@
-import{c as n,a,b as e}from"./index-DrtZs3BX.js";import{B as i}from"./Box-BDho80U-.js";const o={wrapper:n`
+import{c as n,a,b as e}from"./index-Ce8XP42-.js";import{B as i}from"./Box-DJoUEFm-.js";const o={wrapper:n`
     display: flex;
     flex-direction: column;
     align-items: center;

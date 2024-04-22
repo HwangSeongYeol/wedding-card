@@ -1,4 +1,4 @@
-import{c as p,b as e,a as s,r as w}from"./index-DrtZs3BX.js";import{s as t,W as D}from"./WaveWrapper-C9CKagi1.js";import{p as M}from"./SOK_4935-CPD6qCk7.js";import{B as m}from"./Box-BDho80U-.js";import{T as S}from"./TitleComponent-4VIqki_2.js";import"./createTheme-DJt36Tt4.js";const x={wrapper:p`
+import{c as p,b as e,a as s,r as w}from"./index-Ce8XP42-.js";import{s as t,W as D}from"./WaveWrapper-hHULoDo6.js";import{p as M}from"./SOK_4935-CPD6qCk7.js";import{B as m}from"./Box-DJoUEFm-.js";import{T as S}from"./TitleComponent-B-6bXHzY.js";import"./createTheme-CCrEjs8g.js";const x={wrapper:p`
     width: 100%;
     max-width: 300px;
     border-top: 1px solid #000;
