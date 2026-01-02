@@ -1,4 +1,4 @@
-import{c as e,r as t,a as l,b as n,F as o}from"./index-CVKQOKpe.js";const m={wrapper:e`
+import{c as e,r as t,a as l,b as n,F as o}from"./index-BY360Yf7.js";const m={wrapper:e`
     display: flex;
     flex-direction: column;
     margin: 0 auto;

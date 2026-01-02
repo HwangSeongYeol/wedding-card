@@ -1,4 +1,4 @@
-import{c as p,b as e,a as s,r as v}from"./index-CVKQOKpe.js";import{s as t,W as D}from"./WaveWrapper-YvdQ5xUU.js";import{B as m}from"./Box-C6_wkM93.js";import{T as M}from"./TitleComponent-BX08iHuw.js";import"./createTheme-DEQYbKi5.js";const S="/wedding-card/assets/SOK_4935-OW1KYSA9.webp",x={wrapper:p`
+import{c as p,b as e,a as s,r as v}from"./index-BY360Yf7.js";import{s as t,W as D}from"./WaveWrapper-TIj1OKUQ.js";import{B as m}from"./Box-DXbUEkMA.js";import{T as M}from"./TitleComponent-DtCIjnIO.js";import"./createTheme-DZNTmIOu.js";const S="/wedding-card/assets/SOK_4935-OW1KYSA9.webp",x={wrapper:p`
     width: 100%;
     max-width: 300px;
     border-top: 1px solid #000;
